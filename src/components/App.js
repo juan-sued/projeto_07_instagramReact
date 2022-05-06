@@ -1,4 +1,4 @@
-import NavBar from "./NavBarDesktop";
+import NavBarDesktop from "./NavBarDesktop";
 import Content from "./Content";
 import NavBarMobile from "./NavBarMobile";
 
@@ -7,7 +7,7 @@ import NavBarMobile from "./NavBarMobile";
 export default function App() {
     return (
         <div>
-            <NavBar />
+            <NavBarDesktop />
             <Content />
             <NavBarMobile />
         </div>

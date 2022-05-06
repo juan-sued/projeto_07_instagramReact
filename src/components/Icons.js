@@ -1,5 +1,5 @@
 const nameIcons = [
-    "paper-plane-outline", "compass-outline", "heart-outline", "person-outline"
+    "paper-plane-outline", "compass-outline", "heart-outline", "person-outline",
 ]
 
 function Icon(props) {
