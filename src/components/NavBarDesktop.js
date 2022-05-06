@@ -1,12 +1,12 @@
 import Logo_Mobile from "./Logo_Mobile"
 import Logo_Desktop from "./Logo_Desktop"
-import Icons from "./icons"
+import Icons from "./Icons"
 
 
 
 
 
-export default function NavBar() {
+export default function NavBarDesktop() {
   return (
     <div class="navbar">
       <div class="container">

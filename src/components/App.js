@@ -1,4 +1,4 @@
-import NavBar from "./NavBar";
+import NavBar from "./NavBarDesktop";
 import Content from "./Content";
 import NavBarMobile from "./NavBarMobile";
 
