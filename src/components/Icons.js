@@ -1,6 +1,4 @@
-const nameIcons = [
-    "paper-plane-outline", "compass-outline", "heart-outline", "person-outline",
-]
+const nameIcons = ["paper-plane-outline", "compass-outline", "heart-outline", "person-outline"]
 
 function Icon(props) {
     return <ion-icon name={props.type} ></ion-icon>
@@ -8,8 +6,8 @@ function Icon(props) {
 export default function Icons() {
 
     return (
-        <div class="icones">
-            {nameIcons.map((icon) => (<Icon type={icon} />))}
+        <div className="icones">
+            {nameIcons.map((icon) => (<Icon key={icon} type={icon} />))}
         </div>
     )
 }

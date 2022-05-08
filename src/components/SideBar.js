@@ -1,87 +1,68 @@
-export default function SideBar() {
+
+
+// function que componentiza User (usuário acima de sugestions)
+function User(props) {
     return (
-        <div class="sidebar">
-            <div class="usuario">
-                <img src="assets/img/catanacomics.svg" />
-                <div class="texto">
-                    <strong>catanacomics</strong>
-                    Catana
+        <div className="usuario">
+            <img src={props.imageUserProfile} />
+            <div className="texto">
+                <strong>{props.userNameTag}</strong>
+                {props.userName}
+            </div>
+        </div>
+    )
+}
+
+
+// objeto de sugestões que vem da API
+const sugestionObjectList = [
+    { user: "bad.vibes.memes", imageProfile: "assets/img/bad.vibes.memes.svg", follow: false, id: 1 },
+    { user: "chibirdart", imageProfile: "assets/img/chibirdart.svg", follow: true, id: 2 },
+    { user: "razoesparaacreditar", imageProfile: "assets/img/razoesparaacreditar.svg", follow: false, id: 3 },
+    { user: "adorable_animals", imageProfile: "assets/img/adorable_animals.svg", follow: true, id: 4 },
+    { user: "smallcutecats", imageProfile: "assets/img/smallcutecats.svg", follow: true, id: 5 }
+]
+
+function Sugestion(props) {
+
+    props.sugestionObject.follow ? props.sugestionObject.follow = "Segue você" : props.sugestionObject.follow = "Novo no Instagram"
+
+    return (
+        <div className="sugestao">
+            <div className="usuario">
+                <img src={props.sugestionObject.imageProfile} />
+                <div className="texto">
+                    <div className="nome">{props.sugestionObject.user}</div>
+                    <div className="razao">{props.sugestionObject.follow}</div>
                 </div>
             </div>
+            <div className="seguir">Seguir</div>
+        </div>
+    )
+}
 
-            <div class="sugestoes">
-                <div class="titulo">
+
+export default function SideBar() {
+    return (
+        <div className="sidebar">
+            <User userNameTag="catanacomics" userName="Catana" imageUserProfile="assets/img/catanacomics.svg" />
+
+            <div className="sugestoes">
+                <div className="titulo">
                     Sugestões para você
                     <div>Ver tudo</div>
                 </div>
 
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/bad.vibes.memes.svg" />
-                        <div class="texto">
-                            <div class="nome">bad.vibes.memes</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
+                {sugestionObjectList.map(sugestions => <Sugestion sugestionObject={sugestions} key={sugestions.id} />)}
 
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/chibirdart.svg" />
-                        <div class="texto">
-                            <div class="nome">chibirdart</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/razoesparaacreditar.svg" />
-                        <div class="texto">
-                            <div class="nome">razoesparaacreditar</div>
-                            <div class="razao">Novo no Instagram</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/adorable_animals.svg" />
-                        <div class="texto">
-                            <div class="nome">adorable_animals</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/smallcutecats.svg" />
-                        <div class="texto">
-                            <div class="nome">smallcutecats</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
             </div>
 
-            <div class="links">
+            <div className="links">
                 Sobre • Ajuda • Imprensa • API • Carreiras • Privacidade • Termos • Localizações • Contas mais relevantes •
                 Hashtags • Idioma
             </div>
 
-            <div class="copyright">
+            <div className="copyright">
                 © 2021 INSTAGRAM DO FACEBOOK
             </div>
         </div>

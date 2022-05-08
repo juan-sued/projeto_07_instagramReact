@@ -1,11 +1,11 @@
 export default function Logo_Mobile() {
     return (
         <div>
-            <div class="logo-mobile">
+            <div className="logo-mobile">
                 <ion-icon name="logo-instagram"></ion-icon>
             </div>
 
-            <div class="instagram-mobile">
+            <div className="instagram-mobile">
                 <img src="assets/img/logo.png" />
             </div>
         </div>

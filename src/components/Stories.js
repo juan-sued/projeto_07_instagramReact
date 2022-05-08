@@ -1,14 +1,24 @@
+const storiesObjectList = [
+    { user: "airton", image: "assets/img/9gag.svg", id: 1 },
+    { user: "barked", image: "assets/img/barked.svg", id: 2 },
+    { user: "nathanwpylestrangeplanet", image: "assets/img/nathanwpylestrangeplanet.svg", id: 3 },
+    { user: "wawawicomics", image: "assets/img/wawawicomics.svg", id: 4 },
+    { user: "respondeai", image: "assets/img/respondeai.svg", id: 5 },
+    { user: "filomoderna", image: "assets/img/filomoderna.svg", id: 6 },
+    { user: "memeriagourmet", image: "assets/img/memeriagourmet.svg", id: 7 },
 
+
+]
 
 // Function que componentiza Storie para Stories
 function Storie(props) {
     return (
-        <div class="story">
-            <div class="imagem">
-                <img src={props.image} />
+        <div className="story">
+            <div className="imagem">
+                <img src={props.storiesObject.image} />
             </div>
-            <div class="usuario">
-                {props.user}
+            <div className="usuario">
+                {props.storiesObject.user}
             </div>
         </div>
     )
@@ -18,18 +28,14 @@ function Storie(props) {
 
 export default function Stories() {
     return (
-        <div class="stories">
+        <div className="stories">
 
-            <Storie image={"assets/img/9gag.svg"} user={"airton"} />
-            <Storie image={"assets/img/meowed.svg"} user={"meowed"} />
-            <Storie image={"assets/img/barked.svg"} user={"barked"} />
-            <Storie image={"assets/img/nathanwpylestrangeplanet.svg"} user={"nathanwpylestrangeplanet"} />
-            <Storie image={"assets/img/wawawicomics.svg"} user={"wawawicomics"} />
-            <Storie image={"assets/img/respondeai.svg"} user={"respondeai"} />
-            <Storie image={"assets/img/filomoderna.svg"} user={"filomoderna"} />
-            <Storie image={"assets/img/memeriagourmet.svg"} user={"memeriagourmet"} />
+            {storiesObjectList.map(stories => <Storie storiesObject={stories} key={stories.id} />)}
 
-            <div class="setinha">
+
+
+
+            <div className="setinha">
                 <ion-icon name="chevron-forward-circle"></ion-icon>
             </div>
         </div>

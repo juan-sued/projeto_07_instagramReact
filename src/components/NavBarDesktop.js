@@ -8,19 +8,19 @@ import Icons from "./Icons"
 
 export default function NavBarDesktop() {
   return (
-    <div class="navbar">
-      <div class="container">
+    <div className="navbar">
+      <div className="container">
 
         <Logo_Desktop />
         <Logo_Mobile />
 
-        <div class="pesquisa">
+        <div className="pesquisa">
           <input type="text" placeholder="Pesquisar" />
         </div>
 
         <Icons />
 
-        <div class="icones-mobile">
+        <div className="icones-mobile">
           <ion-icon name="paper-plane-outline"></ion-icon>
         </div>
       </div>

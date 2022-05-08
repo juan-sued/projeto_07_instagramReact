@@ -1,22 +1,33 @@
-function Post() {
+
+const postObjectList = [
+    { image: "assets/img/meowed.svg", name: "meowed", contentPost: "assets/img/gato-telefone.svg", id: 1 },
+    { image: "assets/img/barked.svg", name: "barked", contentPost: "assets/img/gato-telefone.svg", id: 2 },
+    { image: "assets/img/meowed.svg", name: "meowed", contentPost: "assets/img/gato-telefone.svg", id: 3 },
+
+]
+
+
+
+function Post(props) {
+    console.log(props)
     return (
-        <div class="post">
-            <div class="topo">
-                <div class="usuario">
-                    <img src="assets/img/meowed.svg" />
-                    meowed
+        <div className="post">
+            <div className="topo">
+                <div className="usuario">
+                    <img src={props.postObject.image} />
+                    {props.postObject.name}
                 </div>
-                <div class="acoes">
+                <div className="acoes">
                     <ion-icon name="ellipsis-horizontal"></ion-icon>
                 </div>
             </div>
 
-            <div class="conteudo">
-                <img src="assets/img/gato-telefone.svg" />
+            <div className="conteudo">
+                <img src={props.postObject.contentPost} />
             </div>
 
-            <div class="fundo">
-                <div class="acoes">
+            <div className="fundo">
+                <div className="acoes">
                     <div>
                         <ion-icon name="heart-outline"></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
@@ -27,9 +38,9 @@ function Post() {
                     </div>
                 </div>
 
-                <div class="curtidas">
+                <div className="curtidas">
                     <img src="assets/img/respondeai.svg" />
-                    <div class="texto">
+                    <div className="texto">
                         Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>
                     </div>
                 </div>
@@ -39,51 +50,13 @@ function Post() {
 }
 
 
-
-
-
-
 export default function Posts() {
     return (
-        <div class="posts">
+        <div className="posts">
 
-            <Post />
 
-            <div class="post">
-                <div class="topo">
-                    <div class="usuario">
-                        <img src="assets/img/barked.svg" />
-                        barked
-                    </div>
-                    <div class="acoes">
-                        <ion-icon name="ellipsis-horizontal"></ion-icon>
-                    </div>
-                </div>
+            {postObjectList.map(post => <Post key={post.id} postObject={post} />)}
 
-                <div class="conteudo">
-                    <img src="assets/img/dog.svg" />
-                </div>
-
-                <div class="fundo">
-                    <div class="acoes">
-                        <div>
-                            <ion-icon name="heart-outline"></ion-icon>
-                            <ion-icon name="chatbubble-outline"></ion-icon>
-                            <ion-icon name="paper-plane-outline"></ion-icon>
-                        </div>
-                        <div>
-                            <ion-icon name="bookmark-outline"></ion-icon>
-                        </div>
-                    </div>
-
-                    <div class="curtidas">
-                        <img src="assets/img/adorable_animals.svg" />
-                        <div class="texto">
-                            Curtido por <strong>adorable_animals</strong> e <strong>outras 99.159 pessoas</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     )
 }

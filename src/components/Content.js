@@ -3,7 +3,7 @@ import SideBar from "./SideBar";
 
 export default function Content() {
     return (
-        <div class="corpo">
+        <div className="corpo">
 
             <LeftContent />
             <SideBar />
