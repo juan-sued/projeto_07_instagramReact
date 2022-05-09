@@ -1,15 +1,20 @@
+import React from "react";
 
-const postObjectList = [
-    { image: "assets/img/meowed.svg", name: "meowed", contentPost: "assets/img/gato-telefone.svg", id: 1 },
-    { image: "assets/img/barked.svg", name: "barked", contentPost: "assets/img/gato-telefone.svg", id: 2 },
-    { image: "assets/img/meowed.svg", name: "meowed", contentPost: "assets/img/gato-telefone.svg", id: 3 },
-
-]
 
 
 
 function Post(props) {
     console.log(props)
+    const [liked, setLiked] = React.useState(false);
+
+
+    function handleLike() {
+        setLiked(!liked);
+    }
+    function likedPost() {
+        setLiked(true)
+    }
+
     return (
         <div className="post">
             <div className="topo">
@@ -22,14 +27,14 @@ function Post(props) {
                 </div>
             </div>
 
-            <div className="conteudo">
+            <div className="conteudo" onClick={likedPost}>
                 <img src={props.postObject.contentPost} />
             </div>
 
             <div className="fundo">
                 <div className="acoes">
                     <div>
-                        <ion-icon name="heart-outline"></ion-icon>
+                        <ion-icon name={liked ? "heart" : "heart-outline"} onClick={handleLike}></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
@@ -51,6 +56,13 @@ function Post(props) {
 
 
 export default function Posts() {
+
+    const postObjectList = [
+        { image: "assets/img/meowed.svg", name: "meowed", contentPost: "assets/img/gato-telefone.svg", id: 1 },
+        { image: "assets/img/barked.svg", name: "barked", contentPost: "assets/img/gato-telefone.svg", id: 2 },
+        { image: "assets/img/meowed.svg", name: "meowed", contentPost: "assets/img/gato-telefone.svg", id: 3 },
+
+    ]
     return (
         <div className="posts">
 
