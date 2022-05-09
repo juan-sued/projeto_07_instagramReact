@@ -7,6 +7,8 @@ const storiesObjectList = [
     { user: "filomoderna", image: "assets/img/filomoderna.svg", id: 6 },
     { user: "memeriagourmet", image: "assets/img/memeriagourmet.svg", id: 7 },
 
+    { user: "airton", image: "assets/img/9gag.svg", id: 8 },
+
 
 ]
 

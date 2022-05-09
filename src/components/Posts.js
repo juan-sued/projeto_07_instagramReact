@@ -1,8 +1,6 @@
 import React from "react";
 
 
-
-
 function Post(props) {
     console.log(props)
     const [liked, setLiked] = React.useState(false);
@@ -58,9 +56,11 @@ function Post(props) {
 export default function Posts() {
 
     const postObjectList = [
-        { image: "assets/img/meowed.svg", name: "meowed", contentPost: "assets/img/gato-telefone.svg", id: 1 },
+        { image: "assets/img/juan.jpg", name: "juan_sued", contentPost: "assets/img/gostosa.jpeg", id: 1 },
         { image: "assets/img/barked.svg", name: "barked", contentPost: "assets/img/gato-telefone.svg", id: 2 },
-        { image: "assets/img/meowed.svg", name: "meowed", contentPost: "assets/img/gato-telefone.svg", id: 3 },
+        { image: "assets/img/juan.jpg", name: "juan_sued", contentPost: "assets/img/gostosa.jpeg", id: 3 },
+        { image: "assets/img/barked.svg", name: "barked", contentPost: "assets/img/gato-telefone.svg", id: 4 },
+        { image: "assets/img/meowed.svg", name: "meowed", contentPost: "assets/img/gostosa.jpeg", id: 5 },
 
     ]
     return (

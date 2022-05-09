@@ -137,6 +137,8 @@ body {
   text-overflow: ellipsis;
   text-align: center;
   height: 14px;
+  font-weight: 300;
+  color: black;
 }
 
 .stories .setinha {
@@ -170,12 +172,14 @@ body {
 .post .topo .acoes {
   display: flex;
   align-items: center;
+
 }
 
 .post .topo img {
   width: 32px;
   height: 32px;
   margin-right: 10px;
+  border-radius: 100px;
 }
 
 .post .usuario,
@@ -186,8 +190,16 @@ body {
   cursor: pointer;
 }
 
+.post ion-icon[name="heart"] {
+  color: red
+}
+
 .post .conteudo img {
   width: 100%;
+}
+
+.post .conteudo :hover {
+  cursor: pointer;
 }
 
 .post .fundo .acoes {
