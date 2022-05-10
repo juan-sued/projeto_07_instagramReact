@@ -1,39 +1,31 @@
 
 
 // function que componentiza User (usuário acima de sugestions)
-function User(props) {
+function User({ imageUserProfile, userNameTag, userName }) {
     return (
         <div className="usuario">
-            <img src={props.imageUserProfile} />
+            <img src={imageUserProfile} />
             <div className="texto">
-                <strong>{props.userNameTag}</strong>
-                {props.userName}
+                <strong>{userNameTag}</strong>
+                {userName}
             </div>
         </div>
     )
 }
 
 
-// objeto de sugestões que vem da API
-const sugestionObjectList = [
-    { user: "bad.vibes.memes", imageProfile: "assets/img/bad.vibes.memes.svg", follow: false, id: 1 },
-    { user: "chibirdart", imageProfile: "assets/img/chibirdart.svg", follow: true, id: 2 },
-    { user: "razoesparaacreditar", imageProfile: "assets/img/razoesparaacreditar.svg", follow: false, id: 3 },
-    { user: "adorable_animals", imageProfile: "assets/img/adorable_animals.svg", follow: true, id: 4 },
-    { user: "smallcutecats", imageProfile: "assets/img/smallcutecats.svg", follow: true, id: 5 }
-]
+// function que componetiza as sugestões
+function Sugestion({ imageProfile, user, follow }) {
 
-function Sugestion(props) {
-
-    props.sugestionObject.follow ? props.sugestionObject.follow = "Segue você" : props.sugestionObject.follow = "Novo no Instagram"
+    follow ? follow = "Segue você" : follow = "Novo no Instagram"
 
     return (
         <div className="sugestao">
             <div className="usuario">
-                <img src={props.sugestionObject.imageProfile} />
+                <img src={imageProfile} />
                 <div className="texto">
-                    <div className="nome">{props.sugestionObject.user}</div>
-                    <div className="razao">{props.sugestionObject.follow}</div>
+                    <div className="nome">{user}</div>
+                    <div className="razao">{follow}</div>
                 </div>
             </div>
             <div className="seguir">Seguir</div>
@@ -43,8 +35,18 @@ function Sugestion(props) {
 
 
 export default function SideBar() {
+
+    // objeto de sugestões que vem da API
+    const sugestionObjectList = [
+        { user: "bad.vibes.memes", imageProfile: "assets/img/bad.vibes.memes.svg", follow: false, id: 1 },
+        { user: "chibirdart", imageProfile: "assets/img/chibirdart.svg", follow: true, id: 2 },
+        { user: "razoesparaacreditar", imageProfile: "assets/img/razoesparaacreditar.svg", follow: false, id: 3 },
+        { user: "adorable_animals", imageProfile: "assets/img/adorable_animals.svg", follow: true, id: 4 },
+        { user: "smallcutecats", imageProfile: "assets/img/smallcutecats.svg", follow: true, id: 5 }
+    ]
     return (
         <div className="sidebar">
+
             <User userNameTag="catanacomics" userName="Catana" imageUserProfile="assets/img/catanacomics.svg" />
 
             <div className="sugestoes">
@@ -53,7 +55,7 @@ export default function SideBar() {
                     <div>Ver tudo</div>
                 </div>
 
-                {sugestionObjectList.map(sugestions => <Sugestion sugestionObject={sugestions} key={sugestions.id} />)}
+                {sugestionObjectList.map(element => <Sugestion user={element.user} imageProfile={element.imageProfile} follow={element.follow} key={element.id} />)}
 
             </div>
 

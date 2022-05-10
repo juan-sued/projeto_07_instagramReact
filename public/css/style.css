@@ -198,6 +198,11 @@ body {
   width: 100%;
 }
 
+.post .conteudo video {
+  width: 100%;
+}
+
+
 .post .conteudo :hover {
   cursor: pointer;
 }
@@ -224,6 +229,7 @@ body {
   width: 20px;
   height: 20px;
   margin-right: 10px;
+  border-radius: 100px;
 }
 
 .post:last-child {

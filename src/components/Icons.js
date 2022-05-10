@@ -1,7 +1,7 @@
 const nameIcons = ["paper-plane-outline", "compass-outline", "heart-outline", "person-outline"]
 
-function Icon(props) {
-    return <ion-icon name={props.type} ></ion-icon>
+function Icon({ type }) {
+    return <ion-icon name={type} ></ion-icon>
 }
 export default function Icons() {
 

@@ -1,10 +1,18 @@
 import React from "react";
 
 
-function Post(props) {
-    console.log(props)
-    const [liked, setLiked] = React.useState(false);
+function Post({
+    imageProfile,
+    nameProfile,
+    contentPost,
+    userLastLikedImage,
+    userLastLikedName,
+    numberLikes, type
+}) {
 
+
+
+    const [liked, setLiked] = React.useState(false);
 
     function handleLike() {
         setLiked(!liked);
@@ -17,8 +25,8 @@ function Post(props) {
         <div className="post">
             <div className="topo">
                 <div className="usuario">
-                    <img src={props.postObject.image} />
-                    {props.postObject.name}
+                    <img src={imageProfile} />
+                    {nameProfile}
                 </div>
                 <div className="acoes">
                     <ion-icon name="ellipsis-horizontal"></ion-icon>
@@ -26,7 +34,11 @@ function Post(props) {
             </div>
 
             <div className="conteudo" onClick={likedPost}>
-                <img src={props.postObject.contentPost} />
+                {type === "image" ? <img src={contentPost} alt="narutin" /> : // se o type for image, ele coloca uma tag img, senão, ele coloca uma tag video
+                    <video controls autoPlay muted>
+                        <source src={contentPost[0]} type="video/mp4" />
+                        <source src={contentPost[1]} type="video/ogg" />
+                    </video>}
             </div>
 
             <div className="fundo">
@@ -42,9 +54,9 @@ function Post(props) {
                 </div>
 
                 <div className="curtidas">
-                    <img src="assets/img/respondeai.svg" />
+                    <img src={userLastLikedImage} />
                     <div className="texto">
-                        Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>
+                        Curtido por <strong>{userLastLikedName}</strong> e <strong>outras {numberLikes} pessoas</strong>
                     </div>
                 </div>
             </div>
@@ -56,18 +68,56 @@ function Post(props) {
 export default function Posts() {
 
     const postObjectList = [
-        { image: "assets/img/juan.jpg", name: "juan_sued", contentPost: "assets/img/gostosa.jpeg", id: 1 },
-        { image: "assets/img/barked.svg", name: "barked", contentPost: "assets/img/gato-telefone.svg", id: 2 },
-        { image: "assets/img/juan.jpg", name: "juan_sued", contentPost: "assets/img/gostosa.jpeg", id: 3 },
-        { image: "assets/img/barked.svg", name: "barked", contentPost: "assets/img/gato-telefone.svg", id: 4 },
-        { image: "assets/img/meowed.svg", name: "meowed", contentPost: "assets/img/gostosa.jpeg", id: 5 },
+        {
+            imageProfile: "assets/img/juan.jpg",
+            nameProfile: "juan_sued",
+            contentPost: "assets/img/gostosa.jpeg",
 
+            type: "image",
+            userLastLikedImage: "assets/img/respondeai.svg",
+            userLastLikedName: "respondeai",
+            numberLikes: 22,
+            id: 0
+        },
+        {
+            imageProfile: "assets/img/barked.svg",
+            nameProfile: "barked",
+            contentPost: "assets/img/barked.svg",
+            type: "image",
+            userLastLikedImage: "assets/img/juan.jpg",
+            userLastLikedName: "juan_sued",
+            numberLikes: 100,
+            id: 1
+        },
+
+        {
+            imageProfile: "assets/img/meowed.svg",
+            nameProfile: "meowed",
+            contentPost: ["assets/video/video1.mp4", "assets/video/video1.ogg"],
+            type: "video",
+            userLastLikedImage: "assets/img/barked.svg",
+            userLastLikedName: "barked",
+            numberLikes: 20,
+            id: 2
+        },
+
+        {
+            imageProfile: "assets/img/barked.svg",
+            nameProfile: "barked",
+            contentPost: "assets/img/barked.svg",
+            type: "image",
+            userLastLikedImage: "assets/img/juan.jpg",
+            userLastLikedName: "juan_sued",
+            numberLikes: 24,
+            id: 3
+        },
+        //colocar type: image or type:video
     ]
+
     return (
         <div className="posts">
 
-
-            {postObjectList.map(post => <Post key={post.id} postObject={post} />)}
+            {postObjectList.map(element => <Post key={element.id} imageProfile={element.imageProfile} nameProfile={element.nameProfile} contentPost={element.contentPost} userLastLikedImage={element.userLastLikedImage} userLastLikedName={element.userLastLikedName} numberLikes={element.numberLikes} type={element.type} />)}
 
         </div>
     )
